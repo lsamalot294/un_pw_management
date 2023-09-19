@@ -1,0 +1,40 @@
+# Write your code here :-)
+class Store_or_retrieve:
+    """decide to store or retrieve"""
+    def __init__(self):
+        """ititiate the desicion maker"""
+        self.decision = None
+    def decider(self):
+        """code for desicion"""
+        user_input = input("Are you saving[1] a username/password combo, or retrieving[2]?\n\tEnter [1] or [2]:")
+        self.decision = int(user_input)
+        if self.decision == 1:
+            #  this takes you to the storing aspect of the program
+            combo_work = Un_pw_management()
+            combo_work.storing_combo()
+        else:
+            print('Go to retrieve - not built yet')
+#  above is tested and it runs when an instance is called
+
+un_pw_dict = {}     # It would be good if a dictionary could be automatically made for each instance.  but then how could it all be stored?
+
+class Un_pw_management:
+    """A class to store or retrieve Username/Password combinations"""
+    def __init__(self):
+        """Initializing attributes"""
+        self.username = None
+        self.password = None
+
+    def storing_combo(self):
+        """Get username & PW from user input"""
+        username = input("Please in put your user name:")
+        password = input("Please in put your user password:")
+        self.username = username
+        self.password = password
+        un_pw_dict[self.username] = self.password
+        print(f"New dictionary: {un_pw_dict}")
+
+#  this user input is making the name the instance
+combo_work = input("Enter the website you are storing information for:")
+combo_work = Store_or_retrieve()
+combo_work.decider()
